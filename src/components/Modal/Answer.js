@@ -70,7 +70,7 @@ const AnswerWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
 
   .answer-content {
     display: flex;
@@ -82,10 +82,18 @@ const AnswerWrap = styled.div`
       font-size: 30px;
       font-weight: bold;
       color: #fff;
+
+      @media screen and (max-width: 480px) {
+        font-size: 20px;
+      }
     }
 
     img {
       margin: 30px 0;
+
+      @media screen and (max-width: 480px) {
+        width: 200px;
+      }
     }
 
     button {
