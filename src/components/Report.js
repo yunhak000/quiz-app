@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import useStore from "../store";
 
 const Report = () => {
   const [answerList, setAnswerList] = useState(JSON.parse(localStorage.getItem("answerList")));
@@ -21,57 +20,55 @@ const Report = () => {
 
     setAnswerCount(answerCount);
     setWrongAnswerCount(wrongAnswerCount);
-
-    return () => {
-      localStorage.clear();
-    };
   }, []);
 
   return (
     <ReportWrap answerCount={answerCount} wrongAnswerCount={wrongAnswerCount}>
-      {answerList ? (
-        <div className="report-content">
-          <h2>풀이 결과</h2>
-          <p className="report-description">
-            총 {answerList && answerList.length}문제 / 소요시간 <span>{finishTime}</span>
-          </p>
-          <table>
-            <thead>
-              <tr>
-                <th>정답</th>
-                <th>오답</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{answerCount}</td>
-                <td>{wrongAnswerCount}</td>
-              </tr>
-            </tbody>
-          </table>
-          <div className="statistics">
-            <div className="answer-ratio">
-              <span className="ratio">{answerCount === 0 ? "0%" : answerCount + "0%"}</span>
-              <span className="tag">정답</span>
+      <div className="report-content">
+        {answerList ? (
+          <>
+            <h2>풀이 결과</h2>
+            <p className="report-description">
+              총 {answerList && answerList.length}문제 / 소요시간 <span>{finishTime}</span>
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th>정답</th>
+                  <th>오답</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{answerCount}</td>
+                  <td>{wrongAnswerCount}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="statistics">
+              <div className="answer-ratio">
+                <span className="ratio">{answerCount === 0 ? "0%" : answerCount + "0%"}</span>
+                <span className="tag">정답</span>
+              </div>
+              <div className="wrong-answer-ratio">
+                <span className="ratio">{wrongAnswerCount === 0 ? "0%" : wrongAnswerCount + "0%"}</span>
+                <span className="tag">오답</span>
+              </div>
             </div>
-            <div className="wrong-answer-ratio">
-              <span className="ratio">{wrongAnswerCount === 0 ? "0%" : wrongAnswerCount + "0%"}</span>
-              <span className="tag">오답</span>
+            <div className="report-button-area">
+              <Link to="/standby">다시풀기</Link>
+              <Link to="/wrongAnswerNote">오답노트</Link>
             </div>
+          </>
+        ) : (
+          <div>
+            <p>퀴즈를 풀어야 결과를 볼 수 있습니다.</p>
+            <Link to="/standby" className="again">
+              퀴즈풀러가기
+            </Link>
           </div>
-          <div className="report-button-area">
-            <Link to="/standby">다시풀기</Link>
-            <Link to="/wrongAnswerNote">오답노트</Link>
-          </div>
-        </div>
-      ) : (
-        <div>
-          <p>퀴즈를 풀어야 결과를 볼 수 있습니다.</p>
-          <Link to="/standby" onClick={() => {}}>
-            퀴즈풀러가기
-          </Link>
-        </div>
-      )}
+        )}
+      </div>
     </ReportWrap>
   );
 };
@@ -171,6 +168,15 @@ const ReportWrap = styled.div`
           background-color: #cb3232;
         }
       }
+    }
+
+    .again {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #1a73e8;
+      color: #fff;
+      border-radius: 10px;
+      margin-top: 20px;
     }
   }
 `;

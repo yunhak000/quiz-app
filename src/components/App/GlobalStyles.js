@@ -5,6 +5,28 @@ const GlobalStyles = createGlobalStyle`
     font-size: 16px;
     background-color: #c0dbff;
   }
+  .report-content {
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid #444;
+    border-radius: 20px;
+
+    table {
+      width: 100%;
+      margin: 30px 0 40px;
+
+      td,
+      th {
+        border: 1px solid #444;
+        padding: 10px;
+      }
+
+      th {
+        background-color: #ddd;
+        font-weight: bold;
+      }
+    }
+  }
 
   h2 {
     font-size: 24px;
