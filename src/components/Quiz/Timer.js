@@ -35,6 +35,11 @@ const TimerWrap = styled.p`
   border-radius: 10px;
   background-color: #fff;
   border: 2px solid #444;
+
+  @media screen and (max-width: 480px) {
+    font-size: 18px;
+    padding: 5px 15px;
+  }
 `;
 
 export default Timer;
