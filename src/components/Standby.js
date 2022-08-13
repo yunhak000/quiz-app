@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Standby = () => {
   return (
     <Link to="/quiz">
-      <StartQuiz>퀴즈 풀기</StartQuiz>
+      <StartQuiz>Start !</StartQuiz>
     </Link>
   );
 };

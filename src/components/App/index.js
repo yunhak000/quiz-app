@@ -6,6 +6,7 @@ import Standby from "../Standby";
 import Quiz from "../Quiz";
 import Report from "../Report";
 import WrongAnswerNote from "../WrongAnswerNote";
+import PageNotFound from "../PageNotFound";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/report" element={<Report />} />
           <Route path="/wrongAnswerNote" element={<WrongAnswerNote />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>
     </>

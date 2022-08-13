@@ -6,12 +6,16 @@ import Answer from "../Modal/Answer";
 import Timer from "./Timer";
 
 const Quiz = () => {
-  const { quizList, setQuizList, quizIndex, exampleList, setExampleList, setAnswerList, myAnswerList, setMyAnswerList, isShowAnswer, setIsShowAnswer } = useStore();
+  const { quizList, setQuizList, quizIndex, setQuizIndex, exampleList, setExampleList, setAnswerList, myAnswerList, setMyAnswerList, isShowAnswer, setIsShowAnswer, setMinutes, setSeconds } =
+    useStore();
 
   useEffect(() => {
     localStorage.clear();
     getQuizList();
     setMyAnswerList([]);
+    setQuizIndex(1);
+    setMinutes(0);
+    setSeconds(0);
   }, []);
 
   useEffect(() => {
