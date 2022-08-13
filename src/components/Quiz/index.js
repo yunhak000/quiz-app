@@ -91,6 +91,12 @@ const QuizWrap = styled.div`
     border: 2px solid #444;
     background-color: #fff;
 
+    @media screen and (max-width: 480px) {
+      max-width: 90vw;
+      box-sizing: border-box;
+      font-size: 18px;
+    }
+
     .timer {
       position: absolute;
       top: 0;

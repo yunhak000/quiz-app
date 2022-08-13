@@ -35,8 +35,13 @@ const WrongAnswerNote = () => {
 
 const WrongAnswerNoteWrap = styled.div`
   width: 550px;
-  margin: 50px auto 0;
+  margin: 50px auto 30px;
   text-align: center;
+
+  @media screen and (max-width: 480px) {
+    max-width: 90vw;
+    box-sizing: border-box;
+  }
 
   a {
     display: inline-block;

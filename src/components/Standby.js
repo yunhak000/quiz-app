@@ -1,12 +1,7 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Standby = () => {
-  useEffect(() => {
-    localStorage.clear();
-  }, []);
-
   return (
     <Link to="/quiz">
       <StartQuiz>퀴즈 풀기</StartQuiz>

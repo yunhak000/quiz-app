@@ -56,14 +56,14 @@ const Report = () => {
               </div>
             </div>
             <div className="report-button-area">
-              <Link to="/standby">다시풀기</Link>
+              <Link to="/">다시풀기</Link>
               <Link to="/wrongAnswerNote">오답노트</Link>
             </div>
           </>
         ) : (
           <div>
             <p>퀴즈를 풀어야 결과를 볼 수 있습니다.</p>
-            <Link to="/standby" className="again">
+            <Link to="/" className="again">
               퀴즈풀러가기
             </Link>
           </div>
@@ -77,6 +77,10 @@ const ReportWrap = styled.div`
   width: 450px;
   margin: 50px auto 0;
   text-align: center;
+
+  @media screen and (max-width: 480px) {
+    max-width: 90vw;
+  }
 
   .report-content {
     background-color: #fff;

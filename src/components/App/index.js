@@ -14,7 +14,7 @@ const App = () => {
       <Reset />
       <Router>
         <Routes>
-          <Route path="/standby" element={<Standby />} />
+          <Route path="/" element={<Standby />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/report" element={<Report />} />
           <Route path="/wrongAnswerNote" element={<WrongAnswerNote />} />
