@@ -22,8 +22,6 @@ const Quiz = () => {
     const quizList = await res.json();
     const answerList = quizList.results.map((quiz) => quiz.correct_answer);
 
-    console.log(answerList);
-
     setAnswerList(answerList);
     setQuizList(quizList.results);
   };
