@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import useStore from "../store";
 
 const Report = () => {
   const [answerList, setAnswerList] = useState(JSON.parse(localStorage.getItem("answerList")));
@@ -21,6 +21,10 @@ const Report = () => {
 
     setAnswerCount(answerCount);
     setWrongAnswerCount(wrongAnswerCount);
+
+    return () => {
+      localStorage.clear();
+    };
   }, []);
 
   return (
@@ -47,35 +51,23 @@ const Report = () => {
           </table>
           <div className="statistics">
             <div className="answer-ratio">
-              <span className="ratio">{answerCount}0%</span>
+              <span className="ratio">{answerCount === 0 ? "0%" : answerCount + "0%"}</span>
               <span className="tag">정답</span>
             </div>
             <div className="wrong-answer-ratio">
-              <span className="ratio">{wrongAnswerCount}0%</span>
+              <span className="ratio">{wrongAnswerCount === 0 ? "0%" : wrongAnswerCount + "0%"}</span>
               <span className="tag">오답</span>
             </div>
           </div>
           <div className="report-button-area">
-            <Link
-              to="/standby"
-              onClick={() => {
-                localStorage.clear();
-              }}
-            >
-              다시풀기
-            </Link>
+            <Link to="/standby">다시풀기</Link>
             <Link to="/wrongAnswerNote">오답노트</Link>
           </div>
         </div>
       ) : (
         <div>
           <p>퀴즈를 풀어야 결과를 볼 수 있습니다.</p>
-          <Link
-            to="/standby"
-            onClick={() => {
-              localStorage.clear();
-            }}
-          >
+          <Link to="/standby" onClick={() => {}}>
             퀴즈풀러가기
           </Link>
         </div>
