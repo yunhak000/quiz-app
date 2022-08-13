@@ -11,6 +11,7 @@ const Quiz = () => {
   useEffect(() => {
     localStorage.clear();
     getQuizList();
+    setMyAnswerList([]);
   }, []);
 
   useEffect(() => {

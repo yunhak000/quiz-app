@@ -5,6 +5,7 @@ import GlobalStyles from "./GlobalStyles";
 import Standby from "../Standby";
 import Quiz from "../Quiz";
 import Report from "../Report";
+import WrongAnswerNote from "../WrongAnswerNote";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/standby" element={<Standby />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/report" element={<Report />} />
+          <Route path="/wrongAnswerNote" element={<WrongAnswerNote />} />
         </Routes>
       </Router>
     </>
