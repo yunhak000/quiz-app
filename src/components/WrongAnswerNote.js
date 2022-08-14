@@ -28,7 +28,9 @@ const WrongAnswerNote = () => {
             ))}
         </tbody>
       </table>
-      <Link to="/report">결과로 돌아가기</Link>
+      <Link to="/report" className="return-report-link">
+        결과로 돌아가기
+      </Link>
     </WrongAnswerNoteWrap>
   );
 };
