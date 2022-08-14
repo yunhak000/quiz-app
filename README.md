@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Quiz App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+해당 프로젝트는 `Chrome`에 최적화 되어있습니다.  
+[Quiz App 바로가기](https://graceful-fairy-7aebf1.netlify.app)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 프로젝트 소개
 
-### `npm start`
+퀴즈를 풀 수 있는 간단한 Quiz 웹앱 입니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 기술스택
 
-### `npm test`
+- React
+- Zustand
+- Styled-Components
+- Local Storage
+- Cypress
+- Neylify
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 프로젝트 기능
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `start` 버튼을 눌러서 퀴즈풀기를 시작할 수 있습니다.
+- 문제는 총 10문제며 퀴즈가 시작되면 시작하자마자 타이머가 흘러갑니다.
+- 4개의 보기 중 하나를 선택할 수 있습니다.
+- 하나의 보기 선택시 레이어팝업으로 정답, 오답이 표출되고 다음문제로 이동할 수 있는 버튼이 보입니다.
+- `다음문제` 버튼 선택시 레이어팝업이 닫히며 다음문제가 표출됩니다.
+- 마지막 문제의 레이어팝업에는 `결과보기`라는 버튼이 표출됩니다.
+  - `결과보기`버튼 클릭시 타이머는 멈추며 풀이결과 페이지로 전환됩니다.
+- `풀이결과` 페이지에서는 `소요시간` / 정답 및 오답 수,비율`그래프` / `다시풀기, 오답노트` 버튼이 표출됩니다.
+  - `오답노트` 버튼 클릭시 나의답과 실제답을 볼 수 있다.
+  - `다시풀기` 버튼 클릭시 다시 문제를 풀 수 있다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 실행방법
 
-### `npm run eject`
+- 셋팅
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  - git clone https://github.com/yunhak000/quiz-app.git
+  - root 경로에 .env 파일 생성 및 내용추가 (내용 : 밑에 박스)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```
+    REACT_APP_API_URL="https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple"
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  - npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- 개발환경 실행
 
-## Learn More
+  - npm start
+  - chrome 브라우저에서 http://localhost:3000/ 접속
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 테스트 환경 실행
+  - npm test
+  - cypress 실행창에서 `E2E Testing` 클릭
+  - 최하단 `Continue` 클릭 (초기 실행시 최초 1회)
+  - chrome 선택 후 `start E2E Testing in Chrome` 클릭
+  - 좌측 메뉴 중 `Specs` 클릭 후 `cypress/e2e/app.cy.js` 클릭
