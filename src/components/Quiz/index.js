@@ -23,7 +23,7 @@ const Quiz = () => {
   }, [quizList, quizIndex]);
 
   const getQuizList = async () => {
-    const res = await fetch("https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple");
+    const res = await fetch(process.env.REACT_APP_API_URL);
     const quizList = await res.json();
     const answerList = quizList.results.map((quiz) => quiz.correct_answer);
 
@@ -69,7 +69,9 @@ const Quiz = () => {
                       setMyAnswer(e.target.value);
                     }}
                   />
-                  <label htmlFor={"example_0" + (index + 1)}>{example}</label>
+                  <label htmlFor={"example_0" + (index + 1)} id={index}>
+                    {example}
+                  </label>
                 </li>
               );
             })}

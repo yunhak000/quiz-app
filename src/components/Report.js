@@ -57,7 +57,9 @@ const Report = () => {
             </div>
             <div className="report-button-area">
               <Link to="/">다시풀기</Link>
-              <Link to="/wrongAnswerNote">오답노트</Link>
+              <Link to="/wrongAnswerNote" className="wrong-answer-note-link">
+                오답노트
+              </Link>
             </div>
           </>
         ) : (
