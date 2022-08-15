@@ -5,7 +5,6 @@ import styled from "styled-components";
 const WrongAnswerNote = () => {
   const [answerList, setAnswerList] = useState(JSON.parse(localStorage.getItem("answerList")));
   const [myAnswerList, setMyAnswerList] = useState(JSON.parse(localStorage.getItem("myAnswerList")));
-
   return (
     <WrongAnswerNoteWrap className="report-content">
       <h2>오답 노트</h2>
@@ -19,13 +18,16 @@ const WrongAnswerNote = () => {
         </thead>
         <tbody>
           {myAnswerList &&
-            myAnswerList.map((myAnswer, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{myAnswer}</td>
-                <td>{answerList[index]}</td>
-              </tr>
-            ))}
+            myAnswerList.map(
+              (myAnswer, index) =>
+                myAnswer !== answerList[index] && (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{myAnswer}</td>
+                    <td>{answerList[index]}</td>
+                  </tr>
+                )
+            )}
         </tbody>
       </table>
       <Link to="/report" className="return-report-link">
